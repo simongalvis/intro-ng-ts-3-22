@@ -220,5 +220,138 @@ describe('variable, data types, typing', () => {
 
 
         });
+
+        it('checks ternary logic', () => {
+            const isSunny: boolean = true;
+            const goOutside: boolean = (isSunny) ? true : false;
+
+            expect(goOutside).toBe(true);
+        });
+
     });
+
+    describe('loops', () => {
+        it('loop exist', () => {
+            const zooAnimals: string[] = ['Zebra', 'Lion', 'Bear'];
+
+            //for of loops work with the values in arrays
+            for (const animal of zooAnimals) {
+                console.log(animal);
+            }
+                // output 
+             /* Zebra
+                Lion
+                Bear */
+            
+
+            let student: object = {
+                name: 'Simon',
+                isDev: true
+            }
+
+            //for in loops work with the keys of an object
+            for (const key in student) {
+                console.log(key);
+            }
+            // output 
+             /* isDev
+                name */
+
+            
+        });
+
+        it('syntactic sugar part 1', () => {
+            let grandparent = {
+                parent: {
+                    child: {
+                        grandChild: 'dave'
+                    }
+                }
+            };
+
+            if(grandparent && grandparent.parent && grandparent.parent.child && grandparent.parent.child.grandChild && grandparent.parent.child.grandChild === 'dave') {
+
+            }
+
+            //elvis operator
+            //optional chaining
+            // .? checks if next properties exist before continuing
+
+            if (grandparent?.parent?.child?.grandChild === 'dave'){
+                console.log('true')
+            }
+
+
+        });
+    });
+    describe('functions', () => {
+        it('review funcs', () => {
+            //can be called before being declared
+        function add(param1: number, param2: number){
+            return param1 + param2
+        }
+
+        //cannot be called before being defined
+        const addToSeven = (param1: number, param2: number) => {
+            return 7 + param1 + param2
+        }
+      });
+
+      it('function and stuff practice', () => {
+        const isEven = (randNum: number) => ((randNum % 2) === 0) ? true : false;
+
+        expect(isEven(1)).toEqual(false);
+        expect(isEven(2)).toEqual(true);
+
+
+       // const addNumbers = (num1: number, num2: number, num3?: number) => num1 + num2 + (num3 ? num3 : null )
+      });
+
+      type functionThatTakesNothingAndGivesNothing = () => void;
+
+      it('should be  ahigher order function', () => {
+          function doSomethingThenSomethingElse(somethingElseToDo: functionThatTakesNothingAndGivesNothing) {
+              somethingElseToDo()
+          }
+
+          doSomethingThenSomethingElse(() => console.log('hey buddy, did the thing'))
+
+          function doSomethingWithResult(callBackFromUser: (taco: string) => void) {
+              let pokemonName = 'Pikachu';
+
+              callBackFromUser(pokemonName);
+          }
+
+          doSomethingWithResult((data) => console.log(data))
+      })
+
+      it('uses array functions', () => {
+          const arr = [1,2,3,4];
+
+        let fakeMap = (arr: any[], mutater: any) => {
+            let copy = [...arr]
+            //for (const index of copy) {
+               // index = mutater(index);
+           // }
+            return copy;
+        }
+
+          const map1 = arr.map(x => x*2);
+
+          //Use of array filter method
+          const evenNumbers = arr.filter(number => (number % 2) === 0)
+      });
+
+      it('practices map', () => {
+        const isEven = (randNum: number) => ((randNum % 2) === 0) ? true : false;
+          let numeros = [1,2,3,4,5,6,7,8,9];
+
+          let arrOfBools: boolean[] = numeros.map(number => isEven(number));
+
+          expect(arrOfBools).toEqual([false, true, false, true, false, true, false, true, false]);
+
+
+      });
+   });
+
 });
