@@ -1,4 +1,3 @@
-import { doesNotThrow } from "assert";
 
 describe('variable, data types, typing', () => {
     it('should declare a variable', () => {
@@ -107,7 +106,7 @@ describe('variable, data types, typing', () => {
 
         });
 
-        fit('should talk interfaces', () => {
+        it('should talk interfaces', () => {
             interface anime {
                 name: string;
                 year: number;
@@ -190,5 +189,36 @@ describe('variable, data types, typing', () => {
 
     });
    
+    describe('js/ts structures', () => {
+        it('reviews operators', () => {
+            let max = 'awesome';
+            let kerry = 'cool';
 
+            //comparison operator
+            // == don't use
+            // === strict comparison
+
+            expect(max === kerry).toBe(false); // false
+
+            //operators
+            /* 
+            a = 10
+            b = 5
+
+
+            + (Addition)	returns the sum of the operands	a + b is 15
+            - (Subtraction)	returns the difference of the values	a - b is 5
+            * (Multiplication)	returns the product of the values	a * b is 50
+            / (Division)	performs division operation and returns the quotient	a / b is 2
+            % (Modulus)	performs division operation and returns the remainder	a % b is 0
+            ++ (Increment)	Increments the value of the variable by one	a++ is 11
+            -- (Decrement)	Decrements the value of the variable by one	a-- is 9
+            */
+
+
+
+
+
+        });
+    });
 });
