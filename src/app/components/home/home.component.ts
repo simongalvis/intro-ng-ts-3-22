@@ -6,6 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  homeTitle = 'Home';
+  homeTitle = 'Tacos';
   homeSubtitle = 'Select a tile below to begin your journey';
 }
