@@ -6,6 +6,7 @@ import { obj as angularStudent } from "../utils/other-utils";
 //import { anime } from "../interfaces/anime.interface";
 
 import * as isEvenFile from "../utils/isEven"; // importing entire file
+import { last } from "rxjs";
 
 describe('variable, data types, typing', () => {
     it('should declare a variable', () => {
@@ -41,7 +42,12 @@ describe('variable, data types, typing', () => {
         const morePeople = new Array<string>();
         morePeople.push('Praveen');
         morePeople.push('Angel');
+
+            //array destructuring
+    let [food, food2, food3] = people;
     });
+
+
 
     it('is a js object', () => {
         const me = {
@@ -59,6 +65,21 @@ describe('variable, data types, typing', () => {
             favoriteActivities: ['Running, Skiing, Mountain Biking']
             
         };
+
+        // object destructuring
+        const {firstName, lastName} = me;
+        console.log(firstName);
+        console.log(lastName);
+
+        // The "structure" object
+        const building = {
+            bricks: 12000,
+            windows: 100,
+            doors: 32,
+            name: 'City Hall'
+        }
+        // De-structure the object (aka destructure the building) down to its pieces and parts
+        const { bricks, windows, doors, name } = building;
     });
 
     it('forgot to talk about booleans', () => {
