@@ -1,3 +1,11 @@
+import { isEven } from "../utils/isEven"; // importing specific functionality from file
+import { getStudentCount } from "../utils/get-student-count";
+import { Cat, movie, anime } from "../interfaces";
+import { obj as angularStudent } from "../utils/other-utils";
+//import { movie } from "../interfaces/movie.interface";
+//import { anime } from "../interfaces/anime.interface";
+
+import * as isEvenFile from "../utils/isEven"; // importing entire file
 
 describe('variable, data types, typing', () => {
     it('should declare a variable', () => {
@@ -18,11 +26,14 @@ describe('variable, data types, typing', () => {
     });
 
     it('should be an object', ()=>{
-        const obj = {
-            name: 'Simon',
-            age: '23',
-            identity: 'Child of God'
-        };
+        angularStudent;
+        expect(angularStudent.name).toEqual('Simon');
+
+        const studentAfterClass = {
+            ...angularStudent,
+            isAngularSME: true
+        }
+        expect(Object.keys(studentAfterClass).length).toEqual(4);
     });
 
     it('should be an array', () =>{
@@ -107,23 +118,11 @@ describe('variable, data types, typing', () => {
         });
 
         it('should talk interfaces', () => {
-            interface anime {
-                name: string;
-                year: number;
-                isGreatestAnimeEver: boolean;
-            }
 
             const dbz: anime = {
                 name: 'dragonball z',
                 year: 1989,
                 isGreatestAnimeEver: true
-            }
-
-            interface movie {
-                name: string;
-                year: number;
-                isGreatestMovieEver: boolean;
-                awards ?: string[] //oprional property
             }
 
             const pbf: movie = {
@@ -153,14 +152,6 @@ describe('variable, data types, typing', () => {
         });
 
         it('interface practice', () => {
-
-            interface Cat {
-                isAFatCat: boolean;
-                isTabby: boolean;
-                color: string;
-                age: number;
-                diet: object;
-            }
 
             let nyanCat: Cat = {
                 isAFatCat: true,
@@ -256,7 +247,7 @@ describe('variable, data types, typing', () => {
             // output 
              /* isDev
                 name */
-
+            getStudentCount();
             
         });
 
@@ -298,7 +289,7 @@ describe('variable, data types, typing', () => {
       });
 
       it('function and stuff practice', () => {
-        const isEven = (randNum: number) => ((randNum % 2) === 0) ? true : false;
+        //const isEven = (randNum: number) => ((randNum % 2) === 0) ? true : false;
 
         expect(isEven(1)).toEqual(false);
         expect(isEven(2)).toEqual(true);
@@ -342,8 +333,8 @@ describe('variable, data types, typing', () => {
           const evenNumbers = arr.filter(number => (number % 2) === 0)
       });
 
-      it('practices map', () => {
-        const isEven = (randNum: number) => ((randNum % 2) === 0) ? true : false;
+      it('practices map', () => {      //set return type of func
+        const isEven = (randNum: number): boolean => ((randNum % 2) === 0) ? true : false;
           let numeros = [1,2,3,4,5,6,7,8,9];
 
           let arrOfBools: boolean[] = numeros.map(number => isEven(number));
